@@ -5,15 +5,11 @@ RSpec.describe Oop::Workshop do
     expect(Oop::Workshop::VERSION).not_to be nil
   end
 
-  it 'broccoli is gross' do
-    expect(Oop::Workshop::Food.portray('Broccoli')).to eql('Gross!')
-  end
+  # it 'broccoli is gross' do
+  #   expect(Oop::Workshop::Food.portray('Broccoli')).to eql('Gross!')
+  # end
 
-  it 'anything else is delicious' do
-    expect(Oop::Workshop::Food.portray('Not Broccoli')).to eql('Delicious!')
-  end
-
-  it 'pluralizes a word' do
-    expect(Oop::Workshop::Food.pluralize('Tomato')).to eql('Tomatoes')
-  end
+  # it 'anything else is delicious' do
+  #   expect(Oop::Workshop::Food.portray('Not Broccoli')).to eql('Delicious!')
+  # end
 end
