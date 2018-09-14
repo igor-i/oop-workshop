@@ -29,7 +29,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   oop-workshop!
   rake (~> 10.0)
-  rspec (~> 3.2)
+  rspec (~> 3.8)
 
 BUNDLED WITH
    1.16.4
