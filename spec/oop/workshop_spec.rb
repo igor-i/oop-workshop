@@ -1,9 +1,15 @@
+require 'oop/workshop'
+
 RSpec.describe Oop::Workshop do
-  it "has a version number" do
+  it 'has a version number' do
     expect(Oop::Workshop::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it 'broccoli is gross' do
+    expect(Oop::Workshop::Food.portray('Broccoli')).to eql('Gross!')
+  end
+
+  it 'anything else is delicious' do
+    expect(Oop::Workshop::Food.portray('Not Broccoli')).to eql('Delicious!')
   end
 end
