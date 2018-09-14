@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 module Oop
   module Workshop
     class Food
@@ -7,6 +9,10 @@ module Oop
         else
           'Delicious!'
         end
+      end
+
+      def self.pluralize(word)
+        word.pluralize
       end
     end
   end

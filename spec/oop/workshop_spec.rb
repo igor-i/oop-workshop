@@ -12,4 +12,8 @@ RSpec.describe Oop::Workshop do
   it 'anything else is delicious' do
     expect(Oop::Workshop::Food.portray('Not Broccoli')).to eql('Delicious!')
   end
+
+  it 'pluralizes a word' do
+    expect(Oop::Workshop::Food.pluralize('Tomato')).to eql('Tomatoes')
+  end
 end
