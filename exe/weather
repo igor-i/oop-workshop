@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'oop/workshop/cli'
+
+print 'nothing.'
+# Oop::Workshop::CLI.start

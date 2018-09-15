@@ -28,5 +28,8 @@ module Oop
       middle_file = ArrayHelper.middle(processed_files)
       StringHelper.plural(middle_file).upcase
     end
+
+    def self.weather(city)
+    end
   end
 end

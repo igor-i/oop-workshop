@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     oop-workshop (0.1.0)
+      thor
 
 GEM
   remote: https://rubygems.org/
@@ -32,6 +33,7 @@ GEM
       rspec (>= 2.14)
     rspec-support (3.8.0)
     safe_yaml (1.0.4)
+    thor (0.20.0)
     webmock (3.4.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
