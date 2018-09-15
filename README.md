@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+### IP Geo
+
 ```ruby
 location = Oop::Workshop.search_location_by_ip '134.234.3.2'
 location.query # => "134.234.3.2"
@@ -32,4 +34,10 @@ location.lon # => -110.35
 location.region_name # => "Arizona"
 location.timezone # => "America/Phoenix"
 location.zip # => "85613"
+```
+
+### Chain
+
+```ruby
+Oop::Workshop.chain # => "BINS"
 ```

@@ -18,4 +18,12 @@ RSpec.describe Oop::Workshop do
     expect(location.timezone).to eql 'America/Phoenix'
     expect(location.zip).to eql '85613'
   end
+
+  it 'has a files in current directory' do
+    expect(Oop::Workshop.chain).not_to be nil
+  end
+
+  it 'middle file with chain must be a "BINS"' do
+    expect(Oop::Workshop.chain).to eql 'BINS'
+  end
 end

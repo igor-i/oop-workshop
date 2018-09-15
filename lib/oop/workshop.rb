@@ -4,6 +4,8 @@ require 'json'
 
 require 'oop/workshop/version'
 require 'oop/workshop/location_data'
+require 'oop/workshop/pluralizer'
+require 'array'
 
 module Oop
   # curl http://ip-api.com/json/134.234.3.2
@@ -15,6 +17,16 @@ module Oop
       resp = uri.open.read
       location_hash = JSON.parse(resp.to_s)
       LocationData.new location_hash
+    end
+
+    def self.chain
+      files = Dir.glob('*')
+      middle_file = files
+                    .reject { |i| i.start_with? '.' }
+                    .sort
+                    .middle
+
+      Pluralizer.plural(middle_file).upcase
     end
   end
 end
