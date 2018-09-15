@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'bundler/setup'
 require 'oop/workshop/cli'
 
-print 'nothing.'
-# Oop::Workshop::CLI.start
+Oop::Workshop::CLI.start

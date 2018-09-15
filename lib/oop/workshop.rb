@@ -30,6 +30,7 @@ module Oop
     end
 
     def self.weather(city)
+      puts city
     end
   end
 end
