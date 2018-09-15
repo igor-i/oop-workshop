@@ -1,7 +1,14 @@
-require "bundler/setup"
-require "oop/workshop"
+require 'webmock/rspec'
+require 'rspec-power_assert'
+require 'bundler/setup'
+
+require 'oop/workshop'
 
 RSpec.configure do |config|
+  def load_fixture(filename)
+    File.read(File.dirname(__FILE__) + "/fixtures/#{filename}")
+  end
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 

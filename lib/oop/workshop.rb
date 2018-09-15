@@ -12,9 +12,12 @@ module Oop
   module Workshop
     URL = 'http://ip-api.com'.freeze
 
+    def self.uri(ip)
+      URI.join(URL, '/json/', ip)
+    end
+
     def self.search_location_by_ip(ip)
-      uri = URI.join(URL, '/json/', ip)
-      resp = uri.open.read
+      resp = uri(ip).open.read
       location_hash = JSON.parse(resp.to_s)
       LocationData.new location_hash
     end

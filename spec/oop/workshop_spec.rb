@@ -1,12 +1,18 @@
 require 'oop/workshop'
 
 RSpec.describe Oop::Workshop do
+  before do
+    @ip = '134.234.3.2'
+    stub_request(:get, Oop::Workshop.uri(@ip).to_s)
+      .to_return(body: load_fixture('ip-api.json'))
+  end
+
   it 'has a version number' do
     expect(Oop::Workshop::VERSION).not_to be nil
   end
 
-  it '134.234.3.2 is in United States' do
-    location = Oop::Workshop.search_location_by_ip '134.234.3.2'
+  it 'IP is in United States' do
+    location = Oop::Workshop.search_location_by_ip @ip
     expect(location.query).to eql '134.234.3.2'
     expect(location.status).to eql 'success'
     expect(location.country).to eql 'United States'
