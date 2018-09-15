@@ -1,15 +1,15 @@
 require 'uri'
 require 'open-uri'
 require 'json'
-
 require 'oop/workshop/version'
-require 'oop/workshop/location_data'
-require 'oop/workshop/pluralizer'
-require 'array'
 
 module Oop
   # curl http://ip-api.com/json/134.234.3.2
   module Workshop
+    autoload 'LocationData', 'oop/workshop/location_data'
+    autoload 'StringHelper', 'oop/workshop/string_helper'
+    autoload 'ArrayHelper', 'oop/workshop/array_helper'
+
     URL = 'http://ip-api.com'.freeze
 
     def self.uri(ip)
@@ -24,12 +24,9 @@ module Oop
 
     def self.chain
       files = Dir.glob('*')
-      middle_file = files
-                    .reject { |i| i.start_with? '.' }
-                    .sort
-                    .middle
-
-      Pluralizer.plural(middle_file).upcase
+      processed_files = files.reject { |i| i.start_with? '.' }.sort
+      middle_file = ArrayHelper.middle(processed_files)
+      StringHelper.plural(middle_file).upcase
     end
   end
 end
