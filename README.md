@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ### IP Geo
 
-Библиотека, которая по ip адресу возвращает гео информацию используя сервис http://ip-api.com
+Библиотека, которая по ip адресу возвращает гео-информацию используя сервис http://ip-api.com
 
 ```ruby
 location = Oop::Workshop.search_location_by_ip '134.234.3.2'
@@ -55,7 +55,7 @@ Oop::Workshop.chain # => "BINS"
 
 #### CLI
 
-```ruby
+```bash
 exe/weather weather --service Metaweather London # => "Heavy Cloud, 18.28"
 exe/weather weather -s Fake Miami # => "Beautiful weather"
 ```
@@ -66,7 +66,7 @@ exe/weather weather -s Fake Miami # => "Beautiful weather"
 Oop::Workshop.weather('Metaweather', 'London') # => "Heavy Cloud, 18.28"
 ```
 
-- or -
+    - or -
 
 ```ruby
 w = Oop::Workshop.Weather.init('Metaweather')
