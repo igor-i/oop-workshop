@@ -1,11 +1,6 @@
-module Oop
-  module Workshop
-    # array helper
-    module ArrayHelper
-      def self.middle(array)
-        middle_index = array.count / 2
-        array.fetch(middle_index)
-      end
-    end
+module Oop::Workshop::ArrayHelper
+  def self.middle(array)
+    middle_index = array.count / 2
+    array.fetch(middle_index)
   end
 end

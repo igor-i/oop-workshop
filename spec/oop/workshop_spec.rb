@@ -2,9 +2,18 @@ require 'oop/workshop'
 
 RSpec.describe Oop::Workshop do
   before do
-    @ip = '134.234.3.2'
-    stub_request(:get, Oop::Workshop.uri(@ip).to_s)
+    @geo_ip = '134.234.3.2'
+    stub_request(:get, Oop::Workshop.uri(@geo_ip).to_s)
       .to_return(body: load_fixture('ip-api.json'))
+
+    @weather_service1 = 'Metaweather'
+    @weather_service2 = 'Fake'
+    @city = 'london'
+    @place_id = 44418
+    stub_request(:get, "https://www.metaweather.com/api/location/search?query=#{@city}")
+      .to_return(body: load_fixture('metaweather_place.json'))
+    stub_request(:get, "https://www.metaweather.com/api/location/#{@place_id}")
+      .to_return(body: load_fixture('metaweather.json'))
   end
 
   it 'has a version number' do
@@ -12,7 +21,8 @@ RSpec.describe Oop::Workshop do
   end
 
   it 'IP is in United States' do
-    location = Oop::Workshop.search_location_by_ip @ip
+    # WebMock.allow_net_connect!
+    location = Oop::Workshop.search_location_by_ip @geo_ip
     expect(location.query).to eql '134.234.3.2'
     expect(location.status).to eql 'success'
     expect(location.country).to eql 'United States'
@@ -29,7 +39,21 @@ RSpec.describe Oop::Workshop do
     expect(Oop::Workshop.chain).not_to be nil
   end
 
-  it 'middle file with chain must be a "BINS"' do
-    expect(Oop::Workshop.chain).to eql 'BINS'
+  it 'weather with the first service' do
+    # WebMock.allow_net_connect!
+    weather = Oop::Workshop.weather @city, @weather_service1
+    expect(weather).to eql 'Heavy Cloud, 19.85'
+  end
+
+  it 'weather with the second service' do
+    weather = Oop::Workshop.weather @city, @weather_service2
+    expect(weather).to eql 'Beautiful weather'
+  end
+
+  it 'change weather services' do
+    # WebMock.allow_net_connect!
+    w = Oop::Workshop::Weather.init @weather_service1
+    expect(w.weather @city).to eql 'Heavy Cloud, 19.85'
+    expect(w.weather @city, @weather_service2).to eql 'Beautiful weather'
   end
 end
