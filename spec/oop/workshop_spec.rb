@@ -56,4 +56,15 @@ RSpec.describe Oop::Workshop do
     expect(w.weather @city).to eql 'Heavy Cloud, 19.85'
     expect(w.weather @city, @weather_service2).to eql 'Beautiful weather'
   end
+
+  it 'add another weather service' do
+    class AnotherWeatherService
+      def weather(_city)
+        'Cloud, 19'
+      end
+    end
+    w = Oop::Workshop::Weather.init @weather_service1, { 'Another' => AnotherWeatherService.new }
+    expect(w.weather @city).to eql 'Heavy Cloud, 19.85'
+    expect(w.weather @city, 'Another').to eql 'Cloud, 19'
+  end
 end

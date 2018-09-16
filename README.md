@@ -73,3 +73,18 @@ w = Oop::Workshop.Weather.init('Metaweather')
 w.weather 'London' # => "Heavy Cloud, 18.28"
 w.weather('Miami', 'Fake') # => "Beautiful weather"
 ```
+
+    - or with another weather service -
+
+```ruby
+class AnotherWeatherService
+  def weather(city)
+    # weather definition
+    'Cloud, 19'
+  end
+end
+
+w = Oop::Workshop.Weather.init('Metaweather', { 'Another' => AnotherWeatherService.new })
+w.weather 'London' # => "Heavy Cloud, 18.28"
+w.weather('London', 'Another') # => "Cloud, 19"
+```
