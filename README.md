@@ -88,3 +88,25 @@ w = Oop::Workshop.Weather.init('Metaweather', { 'Another' => AnotherWeatherServi
 w.weather 'London' # => "Heavy Cloud, 18.28"
 w.weather('London', 'Another') # => "Cloud, 19"
 ```
+
+### Weather by geo
+
+### On Heroku
+
+https://oop-workshop.herokuapp.com
+
+https://oop-workshop.herokuapp.com/ip
+
+https://oop-workshop.herokuapp.com/weather
+
+### local
+
+```bash
+bin/sinatra
+```
+
+http://localhost:4567/
+
+http://localhost:4567/ip
+
+http://localhost:4567/weather

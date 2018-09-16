@@ -24,4 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-power_assert'
   spec.add_development_dependency 'webmock'
   spec.add_dependency 'thor'
+  spec.add_dependency 'sinatra'
+  spec.add_dependency 'dry-container'
+  spec.add_dependency 'geocoder'
+  spec.add_dependency 'forecast_io'
 end
